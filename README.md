@@ -1,3 +1,5 @@
+![Header Image](assets/header.jpg)
+
 # Custom Tales Generator
 
 ## Introduction
