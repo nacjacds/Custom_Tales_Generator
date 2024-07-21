@@ -39,6 +39,7 @@ All user inputs and generated stories are stored in an AWS database for future r
 
 
 ## Dockerfile
+<a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
 
 ```Dockerfile
 # Use a base Python image
@@ -66,4 +67,3 @@ EXPOSE 8000
 
 # Command to run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
-<a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
