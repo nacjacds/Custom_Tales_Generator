@@ -1,0 +1,20 @@
+{
+    "title": "Generate a Custom Story",
+    "language_label": "Language",
+    "language_english": "English",
+    "language_spanish": "Spanish",
+    "child_name": "Child Name",
+    "characters": "Characters",
+    "details": "Story Details",
+    "length": "Story Length",
+    "length_short": "Short",
+    "length_medium": "Medium",
+    "length_long": "Long",
+    "generate_story_button": "Generate Story",
+    "reset_button": "Reset",
+    "story_title": "Here is your story",
+    "read_story_button": "Read Story",
+    "pause_button": "Pause",
+    "resume_button": "Resume",
+    "stop_button": "Stop"
+}

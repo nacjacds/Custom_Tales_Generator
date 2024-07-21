@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ translations["title"] }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            background-image: url('/static/img/kids.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .btn-block {
+            display: inline-block;
+            width: auto;
+            margin: 5px;
+        }
+        .btn-reset {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            color: #ffffff;
+        }
+        .btn-reset:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">{{ translations["title"] }}</h1>
+        <form id="storyForm" method="post" action="/generate_story">
+            <div class="form-group">
+                <label for="language">{{ translations["language_label"] }}</label>
+                <select class="form-control" id="language" name="lang" onchange="changeLanguage()">
+                    <option value="en" {% if lang == 'en' %}selected{% endif %}>{{ translations["language_english"] }}</option>
+                    <option value="es" {% if lang == 'es' %}selected{% endif %}>{{ translations["language_spanish"] }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="child_name">{{ translations["child_name"] }}</label>
+                <input type="text" class="form-control" id="child_name" name="child_name" required>
+            </div>
+            <div class="form-group">
+                <label for="characters">{{ translations["characters"] }}</label>
+                <input type="text" class="form-control" id="characters" name="characters">
+            </div>
+            <div class="form-group">
+                <label for="details">{{ translations["details"] }}</label>
+                <input type="text" class="form-control" id="details" name="details">
+            </div>
+            <div class="form-group">
+                <label for="length">{{ translations["length"] }}</label>
+                <select class="form-control" id="length" name="length">
+                    <option value="short">{{ translations["length_short"] }}</option>
+                    <option value="medium">{{ translations["length_medium"] }}</option>
+                    <option value="long">{{ translations["length_long"] }}</option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-reset btn-block" onclick="resetForm()">{{ translations["reset_button"] }}</button>
+                <button type="submit" class="btn btn-success btn-block">{{ translations["generate_story_button"] }}</button>
+            </div>
+        </form>
+        {% if story %}
+        <div class="mt-5">
+            <h2>{{ translations["story_title"] }}</h2>
+            <p id="storyText">{{ story|safe }}</p>
+            <div class="text-center">
+                <button onclick="readStory()" class="btn btn-primary">{{ translations["read_story_button"] }}</button>
+                <button onclick="pauseStory()" class="btn btn-warning">{{ translations["pause_button"] }}</button>
+                <button onclick="resumeStory()" class="btn btn-info">{{ translations["resume_button"] }}</button>
+                <button onclick="stopStory()" class="btn btn-danger">{{ translations["stop_button"] }}</button>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <script>
+        let utterance;
+        
+        function changeLanguage() {
+            const lang = document.getElementById('language').value;
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/change_language';
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = 'lang';
+            hiddenField.value = lang;
+            form.appendChild(hiddenField);
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        function resetForm() {
+            window.location.href = `/?lang=${document.getElementById('language').value}`;
+        }
+
+        function readStory() {
+            const storyText = document.getElementById('storyText').innerText;
+            utterance = new SpeechSynthesisUtterance(storyText);
+            utterance.lang = '{{ lang }}' === 'es' ? 'es-ES' : 'en-US';
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function pauseStory() {
+            if (utterance) {
+                window.speechSynthesis.pause();
+            }
+        }
+
+        function resumeStory() {
+            if (utterance) {
+                window.speechSynthesis.resume();
+            }
+        }
+
+        function stopStory() {
+            if (utterance) {
+                window.speechSynthesis.cancel();
+            }
+            resetForm();
+        }
+    </script>
+</body>
+</html>

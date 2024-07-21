@@ -1,0 +1,20 @@
+{
+    "title": "Generar Cuento Personalizado",
+    "language_label": "Idioma",
+    "language_english": "Inglés",
+    "language_spanish": "Español",
+    "child_name": "Nombre del Niño/a",
+    "characters": "Personajes",
+    "details": "Detalles del Cuento",
+    "length": "Longitud del Cuento",
+    "length_short": "Corto",
+    "length_medium": "Medio",
+    "length_long": "Largo",
+    "generate_story_button": "Generar Cuento",
+    "reset_button": "Restablecer",
+    "story_title": "Aqui está tu cuento",
+    "read_story_button": "Leer Cuento",
+    "pause_button": "Pausar",
+    "resume_button": "Reanudar",
+    "stop_button": "Detener"
+}
