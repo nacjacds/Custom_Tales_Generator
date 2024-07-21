@@ -36,7 +36,6 @@ The following tools and languages were used to create this application:
 
 All user inputs and generated stories are stored in an AWS database for future reference.
 
-<a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
 
 
 ## Dockerfile
@@ -67,5 +66,4 @@ EXPOSE 8000
 
 # Command to run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
-
-<a href="[https://hub.docker.com/repository/docker/nacjacds/custom_tales/general](https://hub.docker.com/repository/docker/nacjacds/custom_tales/general)" target="_blank">Link to Dockerhub image</a>
+<a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
