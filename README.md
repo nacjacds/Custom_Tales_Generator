@@ -39,7 +39,7 @@ All user inputs and generated stories are stored in an AWS database for future r
 <a href="https://www.loom.com/share/ea563e5d6c7d4eae98743d86fbf7fb39?sid=93f71e76-167d-482a-81b2-6edc75884f65" target="_blank">Link for a video demonstration</a>
 
 
-## Example of Dockerfile
+## Dockerfile
 
 ```Dockerfile
 # Use a base Python image
@@ -67,3 +67,5 @@ EXPOSE 8000
 
 # Command to run the application
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+<a href="[https://www.loom.com/share/ea563e5d6c7d4eae98743d86fbf7fb39?sid=93f71e76-167d-482a-81b2-6edc75884f65](https://hub.docker.com/repository/docker/nacjacds/custom_tales/general)" target="_blank">Link to Dockerhub image</a>
