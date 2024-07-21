@@ -36,7 +36,7 @@ The following tools and languages were used to create this application:
 
 All user inputs and generated stories are stored in an AWS database for future reference.
 
-<a href="https://www.loom.com/share/ea563e5d6c7d4eae98743d86fbf7fb39?sid=93f71e76-167d-482a-81b2-6edc75884f65" target="_blank">Link for a video demonstration</a>
+<a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
 
 
 ## Dockerfile
