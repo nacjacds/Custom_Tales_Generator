@@ -35,35 +35,8 @@ The following tools and languages were used to create this application:
 6. Use the voice controls to read, pause, resume, or stop the story.
 
 All user inputs and generated stories are stored in an AWS database for future reference.
+## Check this video to see how it works:
+<a href="https://www.loom.com/share/4094c8b19942443a891532e494d21755?sid=9c93ed3a-08a9-4259-9ae9-6fd24e2551ef" target="_blank">Custom Tales Generator</a>
 
-
-
-## Dockerfile
+## Docker
 <a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
-
-```Dockerfile
-# Use a base Python image
-FROM python:3.12
-
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the requirements file
-COPY requirements.txt .
-
-# Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application code
-COPY . .
-
-# Set environment variables
-ENV OPENAI_API_KEY=your_openai_api_key
-ENV aws_access_key_id=your_aws_access_key_id
-ENV aws_secret_access_key=your_aws_secret_access_key
-
-# Expose the port the app runs on
-EXPOSE 8000
-
-# Command to run the application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
