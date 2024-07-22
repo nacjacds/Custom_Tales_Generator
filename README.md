@@ -36,7 +36,7 @@ The following tools and languages were used to create this application:
 
 All user inputs and generated stories are stored in an AWS database for future reference.
 ## Check this video to see how it works:
-<a href="https://www.loom.com/share/4094c8b19942443a891532e494d21755?sid=9c93ed3a-08a9-4259-9ae9-6fd24e2551ef" target="_blank">Custom Tales Generator</a>
+<a href="https://www.loom.com/share/4094c8b19942443a891532e494d21755?sid=9c93ed3a-08a9-4259-9ae9-6fd24e2551ef" target="_blank">Custom Tales Generator Video</a>
 
 ## Docker
 <a href="https://hub.docker.com/repository/docker/nacjacds/custom_tales/general" target="_blank">Docker Hub Repository</a>
